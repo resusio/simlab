@@ -1,9 +1,23 @@
+import { diseaseTestOverrideType } from './diseaseTypes';
 import { patientInfoType } from './patientTypes';
+
+export const enum testResultFlag {
+  LOW,
+  HIGH,
+  CRITICAL_LOW,
+  CRITICAL_HIGH,
+  ABNORMAL,
+  NORMAL
+}
 
 export type testResultType = number | string;
 
 export interface testResultListType {
   [testId: string]: testResultType;
+}
+
+export interface testOverrideListType {
+  [testId: string]: diseaseTestOverrideType[];
 }
 
 export interface labTestNomenclatureType {
@@ -20,11 +34,18 @@ export interface labTestUnitType {
   convert: (value: testResultType) => testResultType;
 }
 
-export interface labTestDisplayType {
-  lowLimit: (patient?: patientInfoType) => number;
-  highLimit: (patient?: patientInfoType) => number;
-  units: labTestUnitType[];
-}
+export type labTestDisplayType =
+  | {
+      lowLimit: (patient?: patientInfoType) => number;
+      highLimit: (patient?: patientInfoType) => number;
+      criticalLowLimit?: (patient?: patientInfoType) => number;
+      criticalHighLimit?: (patient?: patientInfoType) => number;
+      units: labTestUnitType[];
+    }
+  | {
+      computeTestResultFlag: (testResult: testResultType, patient?: patientInfoType) => testResultFlag;
+      units: labTestUnitType[];
+    };
 
 export const enum labTestGenerateMethod {
   NORMAL,
@@ -37,10 +58,12 @@ export type labTestGenerateType =
       method: labTestGenerateMethod.NORMAL;
       mean: (patient?: patientInfoType, testResults?: testResultListType) => number;
       sd: (patient?: patientInfoType, testResults?: testResultListType) => number;
+      allowNegative?: boolean;
     }
   | {
       method: labTestGenerateMethod.DERIVED;
-      requires: string[];
+      requires?: string[];
+      defaults?: { id: string; value: testResultType }[];
       calculate: (testResults: testResultListType, patient?: patientInfoType) => testResultType;
     }
   | {

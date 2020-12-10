@@ -262,12 +262,12 @@ const hematologyLabTests: labTestType[] = [
     generate: {
       method: labTestGenerateMethod.DERIVED,
       requires: ['neut', 'lymph'],
-      /*defaults: {
-        band: 0.0,
-        baso: 0.0,
-        eosin: 0.0,
-        mono: 0.0,
-      },*/
+      defaults: [
+        { id: 'band', value: 0.0 },
+        { id: 'baso', value: 0.0 },
+        { id: 'eosin', value: 0.0 },
+        { id: 'mono', value: 0.0 }
+      ],
       calculate: (testResults) =>
         (testResults['neut'] as number) +
         (testResults['band'] as number) +

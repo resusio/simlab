@@ -1,4 +1,4 @@
-import { labTestGenerateMethod } from './labTestTypes';
+import { labTestGenerateMethod, testResultListType, testResultType } from './labTestTypes';
 import { patientInfoType } from './patientTypes';
 
 export type diseaseTestOverrideType =
@@ -11,6 +11,11 @@ export type diseaseTestOverrideType =
   | {
       id: string;
       method: labTestGenerateMethod.DERIVED;
+    }
+  | {
+      id: string;
+      method: labTestGenerateMethod.STATIC;
+      result: (testResults: testResultListType, patient?: patientInfoType) => testResultType;
     };
 
 export interface diseaseType {

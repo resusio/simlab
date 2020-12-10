@@ -15,7 +15,7 @@ const coagulationLabTests: labTestType[] = [
       units: [{ id: '*', unitDisplay: '', precision: 1, convert: (value) => value }]
     },
     generate: {
-      method: labTestGenerateMethod.NORMAL,
+      method: labTestGenerateMethod.NORMAL, // TODO: Should be caculated from PTT
       mean: () => 1.05,
       sd: () => 0.0765306122448979
     }

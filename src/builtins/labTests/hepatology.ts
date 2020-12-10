@@ -152,9 +152,9 @@ const hepatologyLabTests: labTestType[] = [
     generate: {
       method: labTestGenerateMethod.DERIVED,
       requires: ['dbili'],
-      /*defaults: {
-        ibili: 5
-      },*/
+      defaults: [
+        { id: 'ibili', value: 5 }
+      ],
       calculate: (testResults) => asNumber(testResults['dbili']) + asNumber(testResults['ibili'])
     }
   },

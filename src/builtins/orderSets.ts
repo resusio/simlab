@@ -21,8 +21,8 @@ const orderSets: orderSetType[] = [
       'neut',
       'lymph',
       'mono',
-      'eosin',
-      'baso'
+/*      'eosin',
+      'baso'*/
     ]
   },
   {

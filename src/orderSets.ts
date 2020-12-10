@@ -32,5 +32,5 @@ export function expandOrderSets(orderSets: string[], labTests: string[]) {
     labTests
   );
 
-  return _.uniq(finalLabTestList).sort();
+  return _.uniq(finalLabTestList)//.sort();
 }
