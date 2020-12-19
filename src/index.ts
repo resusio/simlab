@@ -31,15 +31,14 @@ import {
   testResultFlag
 } from './types/labReportTypes';
 
-// TODO: allow overridding categories
-interface labReportGeneratorConfigType {
+export interface labReportGeneratorConfigType {
   labTests?: labTestType[];
   orderSets?: orderSetType[];
   diseases?: diseaseType[];
   categories?: categoryType[];
 }
 
-class LabReportGenerator {
+export default class LabReportGenerator {
   // ==== Private fields ======================================================
   private labTests: labTestType[];
   private orderSets: orderSetType[];
