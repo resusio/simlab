@@ -12,7 +12,7 @@ const hepatologyLabTests: labTestType[] = [
     display: {
       lowLimit: () => 18,
       highLimit: () => 40,
-      units: [{ id: '*', unitDisplay: 'U/L', precision: 0, convert: (value) => value }]
+      units: [{ id: /.*/, unitDisplay: 'U/L', precision: 0, convert: (value) => value }]
     },
     generate: {
       method: labTestGenerateMethod.NORMAL,
@@ -31,7 +31,7 @@ const hepatologyLabTests: labTestType[] = [
     display: {
       lowLimit: () => 17,
       highLimit: () => 63,
-      units: [{ id: '*', unitDisplay: 'U/L', precision: 0, convert: (value) => value }]
+      units: [{ id: /.*/, unitDisplay: 'U/L', precision: 0, convert: (value) => value }]
     },
     generate: {
       method: labTestGenerateMethod.NORMAL,
@@ -50,7 +50,7 @@ const hepatologyLabTests: labTestType[] = [
     display: {
       lowLimit: () => 10,
       highLimit: () => 48,
-      units: [{ id: '*', unitDisplay: 'U/L', precision: 0, convert: (value) => value }]
+      units: [{ id: /.*/, unitDisplay: 'U/L', precision: 0, convert: (value) => value }]
     },
     generate: {
       method: labTestGenerateMethod.NORMAL,
@@ -69,7 +69,7 @@ const hepatologyLabTests: labTestType[] = [
     display: {
       lowLimit: () => 38,
       highLimit: () => 126,
-      units: [{ id: '*', unitDisplay: 'U/L', precision: 0, convert: (value) => value }]
+      units: [{ id: /.*/, unitDisplay: 'U/L', precision: 0, convert: (value) => value }]
     },
     generate: {
       method: labTestGenerateMethod.NORMAL,
@@ -90,7 +90,7 @@ const hepatologyLabTests: labTestType[] = [
       highLimit: () => 4,
       units: [
         {
-          id: '*',
+          id: /.*/,
           unitDisplay: '&micro;mol/L',
           precision: 0,
           convert: (value) => value
@@ -116,7 +116,7 @@ const hepatologyLabTests: labTestType[] = [
       highLimit: () => 19,
       units: [
         {
-          id: '*',
+          id: /.*/,
           unitDisplay: '&micro;mol/L',
           precision: 0,
           convert: (value) => value
@@ -142,7 +142,7 @@ const hepatologyLabTests: labTestType[] = [
       highLimit: () => 22,
       units: [
         {
-          id: '*',
+          id: /.*/,
           unitDisplay: '&micro;mol/L',
           precision: 0,
           convert: (value) => value
@@ -151,10 +151,7 @@ const hepatologyLabTests: labTestType[] = [
     },
     generate: {
       method: labTestGenerateMethod.DERIVED,
-      requires: ['dbili'],
-      defaults: [
-        { id: 'ibili', value: 5 }
-      ],
+      requires: ['dbili', 'ibili'],
       calculate: (testResults) => asNumber(testResults['dbili']) + asNumber(testResults['ibili'])
     }
   },
@@ -169,7 +166,7 @@ const hepatologyLabTests: labTestType[] = [
     display: {
       lowLimit: () => 0,
       highLimit: () => 160,
-      units: [{ id: '*', unitDisplay: 'U/L', precision: 0, convert: (value) => value }]
+      units: [{ id: /.*/, unitDisplay: 'U/L', precision: 0, convert: (value) => value }]
     },
     generate: {
       method: labTestGenerateMethod.NORMAL,

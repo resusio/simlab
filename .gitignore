@@ -2,8 +2,13 @@
 # Created by https://www.toptal.com/developers/gitignore/api/node
 # Edit at https://www.toptal.com/developers/gitignore?templates=node
 
+### OS stuff ###
+.DS_Store
+Thumbs.db
+
 ### Typescript ###
 dist
+docs
 
 ### Node ###
 # Logs

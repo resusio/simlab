@@ -12,7 +12,7 @@ const coagulationLabTests: labTestType[] = [
     display: {
       lowLimit: () => 0.9,
       highLimit: () => 1.2,
-      units: [{ id: '*', unitDisplay: '', precision: 1, convert: (value) => value }]
+      units: [{ id: /.*/, unitDisplay: '', precision: 1, convert: (value) => value }]
     },
     generate: {
       method: labTestGenerateMethod.NORMAL, // TODO: Should be caculated from PTT
@@ -31,7 +31,7 @@ const coagulationLabTests: labTestType[] = [
     display: {
       lowLimit: () => 10,
       highLimit: () => 13,
-      units: [{ id: '*', unitDisplay: 'sec', precision: 0, convert: (value) => value }]
+      units: [{ id: /.*/, unitDisplay: 'sec', precision: 0, convert: (value) => value }]
     },
     generate: {
       method: labTestGenerateMethod.NORMAL,
@@ -50,7 +50,7 @@ const coagulationLabTests: labTestType[] = [
     display: {
       lowLimit: () => 28,
       highLimit: () => 38,
-      units: [{ id: '*', unitDisplay: 'sec', precision: 0, convert: (value) => value }]
+      units: [{ id: /.*/, unitDisplay: 'sec', precision: 0, convert: (value) => value }]
     },
     generate: {
       method: labTestGenerateMethod.NORMAL,
@@ -69,7 +69,7 @@ const coagulationLabTests: labTestType[] = [
     display: {
       lowLimit: () => 0,
       highLimit: () => 0.5,
-      units: [{ id: '*', unitDisplay: 'mg/L', precision: 2, convert: (value) => value }]
+      units: [{ id: /.*/, unitDisplay: 'mg/L', precision: 2, convert: (value) => value }]
     },
     generate: {
       method: labTestGenerateMethod.NORMAL,

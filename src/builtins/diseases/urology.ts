@@ -1,35 +1,32 @@
 import { labTestGenerateMethod } from '../../types/labTestTypes';
-import { diseaseTreeNode } from '../../types/diseaseTypes';
-import random from "random";
+import { diseaseType } from '../../types/diseaseTypes';
+import random from 'random';
 
 /**
  * Contains information about the urology category of diseases, as well as
  * the information for each trauma disease
  */
-const urologyDiseases: diseaseTreeNode[] = [
+const urologyDiseases: diseaseType[] = [
   {
-    id: 'renalcolic',
-    children: [],
-    disease: {
-      nomenclature: {
-        long: 'Renal Colic',
-        short: 'Renal Colic',
-        description: 'Renal colic with hematuria and mild renal impairement.'
+    id: 'urology.colic',
+    nomenclature: {
+      long: 'Renal Colic',
+      short: 'Renal Colic',
+      description: 'Renal colic with hematuria and mild renal impairement.'
+    },
+    testOverrides: [
+      {
+        id: 'cr',
+        method: labTestGenerateMethod.NORMAL,
+        mean: (mean) => mean * 1.25,
+        sd: (mean, sd) => sd
       },
-      testOverrides: [
-        {
-          id: 'cr',
-          method: labTestGenerateMethod.NORMAL,
-          mean: (mean) => mean * 1.25,
-          sd: (mean, sd) => sd
-        },
-        {
-          id: 'udip-rbc',
-          method: labTestGenerateMethod.STATIC,
-          result: () => `${random.int(3, 4)}+`
-        },
-      ]
-    }
+      {
+        id: 'udip-rbc',
+        method: labTestGenerateMethod.DERIVED,
+        calculate: () => `${random.int(3, 4)}+`
+      }
+    ]
   }
 ];
 

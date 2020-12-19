@@ -12,7 +12,7 @@ const cardiacLabTests: labTestType[] = [
     display: {
       lowLimit: () => 0,
       highLimit: () => 14,
-      units: [{ id: '*', unitDisplay: 'ng/L', precision: 0, convert: (value) => value }]
+      units: [{ id: /.*/, unitDisplay: 'ng/L', precision: 0, convert: (value) => value }]
     },
     generate: {
       method: labTestGenerateMethod.NORMAL,
@@ -31,7 +31,7 @@ const cardiacLabTests: labTestType[] = [
     display: {
       lowLimit: () => 0,
       highLimit: () => 125,
-      units: [{ id: '*', unitDisplay: 'pg/mL', precision: 0, convert: (value) => value }]
+      units: [{ id: /.*/, unitDisplay: 'pg/mL', precision: 0, convert: (value) => value }]
     },
     generate: {
       method: labTestGenerateMethod.NORMAL,

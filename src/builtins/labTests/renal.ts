@@ -15,7 +15,7 @@ const renalLabTests: labTestType[] = [
       highLimit: () => 8,
       units: [
         {
-          id: '*',
+          id: /.*/,
           unitDisplay: 'mmol/L',
           precision: 1,
           convert: (value) => value
@@ -41,7 +41,7 @@ const renalLabTests: labTestType[] = [
       highLimit: () => 120,
       units: [
         {
-          id: '*',
+          id: /.*/,
           unitDisplay: '&micro;mol/L',
           precision: 0,
           convert: (value) => value
@@ -67,7 +67,7 @@ const renalLabTests: labTestType[] = [
       highLimit: () => 130,
       units: [
         {
-          id: '*',
+          id: /.*/,
           unitDisplay: 'mL/min/1.73 m<sup>2</sup>',
           precision: 0,
           convert: (value) => value
@@ -76,7 +76,7 @@ const renalLabTests: labTestType[] = [
     },
     generate: {
       method: labTestGenerateMethod.DERIVED,
-      requires: ['cr'],
+      requires: ['cr', 'wbc'], // TODO: remove 'wbc', it's just for testing
       calculate: (testResults, patient) => {
         if (!patient) return Number.NaN;
 
@@ -97,7 +97,7 @@ const renalLabTests: labTestType[] = [
     display: {
       lowLimit: () => 20,
       highLimit: () => 215,
-      units: [{ id: '*', unitDisplay: 'U/L', precision: 0, convert: (value) => value }]
+      units: [{ id: /.*/, unitDisplay: 'U/L', precision: 0, convert: (value) => value }]
     },
     generate: {
       method: labTestGenerateMethod.NORMAL,

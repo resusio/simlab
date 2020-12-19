@@ -11,24 +11,15 @@ export type diseaseTestOverrideType =
   | {
       id: string;
       method: labTestGenerateMethod.DERIVED;
-    }
-  | {
-      id: string;
-      method: labTestGenerateMethod.STATIC;
-      result: (testResults: testResultListType, patient?: patientInfoType) => testResultType;
+      calculate: (testResults: testResultListType, patient?: patientInfoType) => testResultType;
     };
 
 export interface diseaseType {
+  id: string;
   nomenclature: {
     long: string;
     short: string;
     description: string;
   };
   testOverrides: diseaseTestOverrideType[];
-}
-
-export interface diseaseTreeNode {
-  id: string;
-  children: diseaseTreeNode[];
-  disease?: diseaseType;
 }

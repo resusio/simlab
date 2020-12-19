@@ -1,9 +1,11 @@
+import { categoryType } from '../types/categoryTypes';
+
 /**
  * Contains a numeric value for each category that indicates the order in which that
  * category should be displayed (lowest to highest). This is to allow consistent
  * appearing lab reports.
  */
-const categories = [
+const categories: categoryType[] = [
   { categoryName: 'Hematology', sortIndex: 10 },
   { categoryName: 'Coagulation', sortIndex: 20 },
   { categoryName: 'Chemistry', sortIndex: 30 },

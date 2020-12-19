@@ -14,7 +14,7 @@ const hematologyLabTests: labTestType[] = [
       highLimit: () => 5.7,
       units: [
         {
-          id: '*',
+          id: /.*/,
           unitDisplay: '&times; 10<sup>12</sup>/L',
           precision: 2,
           convert: (value) => value
@@ -40,16 +40,16 @@ const hematologyLabTests: labTestType[] = [
       highLimit: () => 170,
       units: [
         {
-          id: 'metric',
-          unitDisplay: 'g/L',
-          precision: 0,
-          convert: (value) => value
-        },
-        {
-          id: 'imperial',
+          id: /imperial/,
           unitDisplay: 'g/dL',
           precision: 1,
           convert: (value) => (value as number) / 10.0
+        },
+        {
+          id: /.*/,
+          unitDisplay: 'g/L',
+          precision: 0,
+          convert: (value) => value
         }
       ]
     },
@@ -70,7 +70,7 @@ const hematologyLabTests: labTestType[] = [
     display: {
       lowLimit: () => 0.38,
       highLimit: () => 0.5,
-      units: [{ id: '*', unitDisplay: '', precision: 2, convert: (value) => value }]
+      units: [{ id: /.*/, unitDisplay: '', precision: 2, convert: (value) => value }]
     },
     generate: {
       method: labTestGenerateMethod.DERIVED,
@@ -89,7 +89,7 @@ const hematologyLabTests: labTestType[] = [
     display: {
       lowLimit: () => 80,
       highLimit: () => 100,
-      units: [{ id: '*', unitDisplay: 'fL', precision: 0, convert: (value) => value }]
+      units: [{ id: /.*/, unitDisplay: 'fL', precision: 0, convert: (value) => value }]
     },
     generate: {
       method: labTestGenerateMethod.NORMAL,
@@ -108,7 +108,7 @@ const hematologyLabTests: labTestType[] = [
     display: {
       lowLimit: () => 17,
       highLimit: () => 34,
-      units: [{ id: '*', unitDisplay: 'pg', precision: 0, convert: (value) => value }]
+      units: [{ id: /.*/, unitDisplay: 'pg', precision: 0, convert: (value) => value }]
     },
     generate: {
       method: labTestGenerateMethod.NORMAL,
@@ -129,7 +129,7 @@ const hematologyLabTests: labTestType[] = [
       highLimit: () => 400,
       units: [
         {
-          id: '*',
+          id: /.*/,
           unitDisplay: '&times; 10<sup>9</sup>/L',
           precision: 0,
           convert: (value) => value
@@ -153,7 +153,7 @@ const hematologyLabTests: labTestType[] = [
     display: {
       lowLimit: () => 11.5,
       highLimit: () => 14.5,
-      units: [{ id: '*', unitDisplay: '%', precision: 1, convert: (value) => value }]
+      units: [{ id: /.*/, unitDisplay: '%', precision: 1, convert: (value) => value }]
     },
     generate: {
       method: labTestGenerateMethod.NORMAL,
@@ -174,7 +174,7 @@ const hematologyLabTests: labTestType[] = [
       highLimit: () => 84,
       units: [
         {
-          id: '',
+          id: /.*/,
           unitDisplay: '&times; 10<sup>9</sup>/L',
           precision: 0,
           convert: (value) => value
@@ -200,7 +200,7 @@ const hematologyLabTests: labTestType[] = [
       highLimit: () => 6,
       units: [
         {
-          id: '*',
+          id: /.*/,
           unitDisplay: 'mm/hr',
           precision: 0,
           convert: (value) => value
@@ -226,7 +226,7 @@ const hematologyLabTests: labTestType[] = [
       highLimit: () => 8,
       units: [
         {
-          id: '*',
+          id: /.*/,
           unitDisplay: 'mg/L',
           precision: 1,
           convert: (value) => value
@@ -252,7 +252,7 @@ const hematologyLabTests: labTestType[] = [
       highLimit: () => 10,
       units: [
         {
-          id: '*',
+          id: /.*/,
           unitDisplay: '&times; 10<sup>9</sup>/L',
           precision: 1,
           convert: (value) => value
@@ -261,13 +261,7 @@ const hematologyLabTests: labTestType[] = [
     },
     generate: {
       method: labTestGenerateMethod.DERIVED,
-      requires: ['neut', 'lymph'],
-      defaults: [
-        { id: 'band', value: 0.0 },
-        { id: 'baso', value: 0.0 },
-        { id: 'eosin', value: 0.0 },
-        { id: 'mono', value: 0.0 }
-      ],
+      requires: ['neut', 'lymph', 'band', 'baso', 'eosin', 'mono'],
       calculate: (testResults) =>
         (testResults['neut'] as number) +
         (testResults['band'] as number) +
@@ -290,7 +284,7 @@ const hematologyLabTests: labTestType[] = [
       highLimit: () => 7,
       units: [
         {
-          id: '*',
+          id: /.*/,
           unitDisplay: '&times; 10<sup>9</sup>/L',
           precision: 2,
           convert: (value) => value
@@ -316,7 +310,7 @@ const hematologyLabTests: labTestType[] = [
       highLimit: () => 0.7,
       units: [
         {
-          id: '*',
+          id: /.*/,
           unitDisplay: '&times; 10<sup>9</sup>/L',
           precision: 2,
           convert: (value) => value
@@ -342,7 +336,7 @@ const hematologyLabTests: labTestType[] = [
       highLimit: () => 0.1,
       units: [
         {
-          id: '*',
+          id: /.*/,
           unitDisplay: '&times; 10<sup>9</sup>/L',
           precision: 2,
           convert: (value) => value
@@ -368,7 +362,7 @@ const hematologyLabTests: labTestType[] = [
       highLimit: () => 0.45,
       units: [
         {
-          id: '*',
+          id: /.*/,
           unitDisplay: '&times; 10<sup>9</sup>/L',
           precision: 2,
           convert: (value) => value
@@ -394,7 +388,7 @@ const hematologyLabTests: labTestType[] = [
       highLimit: () => 4,
       units: [
         {
-          id: '*',
+          id: /.*/,
           unitDisplay: '&times; 10<sup>9</sup>/L',
           precision: 2,
           convert: (value) => value
@@ -420,7 +414,7 @@ const hematologyLabTests: labTestType[] = [
       highLimit: () => 1,
       units: [
         {
-          id: '*',
+          id: /.*/,
           unitDisplay: '&times; 10<sup>9</sup>/L',
           precision: 2,
           convert: (value) => value
