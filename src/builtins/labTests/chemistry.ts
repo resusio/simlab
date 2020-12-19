@@ -14,7 +14,7 @@ const chemistryLabTests: labTestType[] = [
       highLimit: () => 11.1,
       units: [
         {
-          id: '*',
+          id: /.*/,
           unitDisplay: 'mmol/L',
           precision: 1,
           convert: (value) => value
@@ -40,7 +40,7 @@ const chemistryLabTests: labTestType[] = [
       highLimit: () => 145,
       units: [
         {
-          id: '*',
+          id: /.*/,
           unitDisplay: 'mmol/L',
           precision: 0,
           convert: (value) => value
@@ -66,7 +66,7 @@ const chemistryLabTests: labTestType[] = [
       highLimit: () => 5,
       units: [
         {
-          id: '*',
+          id: /.*/,
           unitDisplay: 'mmol/L',
           precision: 1,
           convert: (value) => value
@@ -92,7 +92,7 @@ const chemistryLabTests: labTestType[] = [
       highLimit: () => 106,
       units: [
         {
-          id: '*',
+          id: /.*/,
           unitDisplay: 'mmol/L',
           precision: 0,
           convert: (value) => value
@@ -118,7 +118,7 @@ const chemistryLabTests: labTestType[] = [
       highLimit: () => 30,
       units: [
         {
-          id: '*',
+          id: /.*/,
           unitDisplay: 'mmol/L',
           precision: 0,
           convert: (value) => value
@@ -144,7 +144,7 @@ const chemistryLabTests: labTestType[] = [
       highLimit: () => 12,
       units: [
         {
-          id: '*',
+          id: /.*/,
           unitDisplay: 'mEq/L',
           precision: 0,
           convert: (value) => value
@@ -153,7 +153,7 @@ const chemistryLabTests: labTestType[] = [
     },
     generate: {
       method: labTestGenerateMethod.DERIVED,
-      requires: ['na', 'cl', 'hco3'],
+      requires: ['na', 'cl', 'hco3', 'wbc', 'neut'], // TODO: remove wbc and neut, it's just for testing
       calculate: (testResults) =>
         asNumber(testResults['na']) - asNumber(testResults['cl']) - asNumber(testResults['hco3'])
     }
