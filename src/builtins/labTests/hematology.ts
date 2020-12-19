@@ -264,10 +264,10 @@ const hematologyLabTests: labTestType[] = [
       requires: ['neut', 'lymph', 'band', 'baso', 'eosin', 'mono'],
       calculate: (testResults) =>
         (testResults['neut'] as number) +
+        (testResults['lymph'] as number) +
         (testResults['band'] as number) +
         (testResults['baso'] as number) +
         (testResults['eosin'] as number) +
-        (testResults['lymph'] as number) +
         (testResults['mono'] as number)
     }
   },

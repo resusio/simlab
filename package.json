@@ -1,6 +1,6 @@
 {
   "name": "@resusio/simlab",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "A library to generate mock patient laboratory test reports, for use in medical simulation teaching.",
   "homepage": "https://github.com/resusio/simlab#readme",
   "main": "dist/index.js",

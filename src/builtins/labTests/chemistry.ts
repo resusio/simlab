@@ -153,7 +153,7 @@ const chemistryLabTests: labTestType[] = [
     },
     generate: {
       method: labTestGenerateMethod.DERIVED,
-      requires: ['na', 'cl', 'hco3', 'wbc', 'neut'], // TODO: remove wbc and neut, it's just for testing
+      requires: ['na', 'cl', 'hco3'],
       calculate: (testResults) =>
         asNumber(testResults['na']) - asNumber(testResults['cl']) - asNumber(testResults['hco3'])
     }

@@ -76,7 +76,7 @@ const renalLabTests: labTestType[] = [
     },
     generate: {
       method: labTestGenerateMethod.DERIVED,
-      requires: ['cr', 'wbc'], // TODO: remove 'wbc', it's just for testing
+      requires: ['cr'],
       calculate: (testResults, patient) => {
         if (!patient) return Number.NaN;
 
