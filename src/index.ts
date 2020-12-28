@@ -350,7 +350,7 @@ export default class LabReportGenerator {
         (checkOrderSet) => checkOrderSet.id.toLowerCase() === orderSetId.toLowerCase()
       );
 
-      // Ensure it does not already exist in our list of lab tests
+      // Ensure it does not already exist in our list of requested order sets
       if (orderSetConfig && this.requestedOrderSets.indexOf(orderSetConfig) === -1)
         this.requestedOrderSets.push(orderSetConfig);
     });
@@ -427,10 +427,11 @@ export default class LabReportGenerator {
    */
   private expandOrderSets(orderSets: orderSetType[], labTests: labTestType[]): labTestType[] {
     let finalLabTestList: labTestType[] = [...labTests];
+    let orderSetListClone = [...orderSets]; // Need to clone this so as not to modify the orderSets argument.
 
-    while (orderSets.length > 0) {
+    while (orderSetListClone.length > 0) {
       // Take the first order set off the list
-      const orderSet = orderSets.pop();
+      const orderSet = orderSetListClone.pop();
 
       if (!orderSet) break; // If no order set on the array, leave the array.
 
@@ -441,7 +442,7 @@ export default class LabReportGenerator {
             (checkOrderSet) => checkOrderSet.id === orderSetComponentId
           );
           if (nestedOrderSet) {
-            orderSets.push(nestedOrderSet); // This order set component is another order set, not a lab test. Add it to the array of order sets to expand and we'll get to it later.
+            orderSetListClone.push(nestedOrderSet); // This order set component is another order set, not a lab test. Add it to the array of order sets to expand and we'll get to it later.
           } else {
             const labTest = this.labTests.find(
               (checkLabTest) => checkLabTest.id === orderSetComponentId
