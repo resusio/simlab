@@ -16,6 +16,7 @@ const cardiacLabTests: labTestType[] = [
     },
     generate: {
       method: labTestGenerateMethod.NORMAL,
+      valueType: 'number',
       mean: () => 7,
       sd: () => 3.57142857142857
     }
@@ -35,6 +36,7 @@ const cardiacLabTests: labTestType[] = [
     },
     generate: {
       method: labTestGenerateMethod.NORMAL,
+      valueType: 'number',
       mean: () => 62.5,
       sd: () => 31.8877551020408
     }

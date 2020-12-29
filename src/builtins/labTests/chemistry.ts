@@ -23,6 +23,7 @@ const chemistryLabTests: labTestType[] = [
     },
     generate: {
       method: labTestGenerateMethod.NORMAL,
+      valueType: 'number',
       mean: () => 7.45,
       sd: () => 1.86224489795918
     }
@@ -49,6 +50,7 @@ const chemistryLabTests: labTestType[] = [
     },
     generate: {
       method: labTestGenerateMethod.NORMAL,
+      valueType: 'number',
       mean: () => 140,
       sd: () => 2.55102040816327
     }
@@ -75,6 +77,7 @@ const chemistryLabTests: labTestType[] = [
     },
     generate: {
       method: labTestGenerateMethod.NORMAL,
+      valueType: 'number',
       mean: () => 4.25,
       sd: () => 0.38265306122449
     }
@@ -101,6 +104,7 @@ const chemistryLabTests: labTestType[] = [
     },
     generate: {
       method: labTestGenerateMethod.NORMAL,
+      valueType: 'number',
       mean: () => 102,
       sd: () => 2.04081632653061
     }
@@ -127,6 +131,7 @@ const chemistryLabTests: labTestType[] = [
     },
     generate: {
       method: labTestGenerateMethod.NORMAL,
+      valueType: 'number',
       mean: () => 27,
       sd: () => 1.53061224489796
     }
@@ -153,6 +158,7 @@ const chemistryLabTests: labTestType[] = [
     },
     generate: {
       method: labTestGenerateMethod.DERIVED,
+      valueType: 'number',
       requires: ['na', 'cl', 'hco3'],
       calculate: (testResults) =>
         asNumber(testResults['na']) - asNumber(testResults['cl']) - asNumber(testResults['hco3'])

@@ -17,6 +17,7 @@ const urinalysisLabTests: labTestType[] = [
     },
     generate: {
       method: labTestGenerateMethod.DERIVED,
+      valueType: 'string',
       calculate: () => 'Negative'
     }
   }

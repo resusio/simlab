@@ -16,6 +16,7 @@ const hepatologyLabTests: labTestType[] = [
     },
     generate: {
       method: labTestGenerateMethod.NORMAL,
+      valueType: 'number',
       mean: () => 29,
       sd: () => 5.61224489795918
     }
@@ -35,6 +36,7 @@ const hepatologyLabTests: labTestType[] = [
     },
     generate: {
       method: labTestGenerateMethod.NORMAL,
+      valueType: 'number',
       mean: () => 40,
       sd: () => 11.734693877551
     }
@@ -54,6 +56,7 @@ const hepatologyLabTests: labTestType[] = [
     },
     generate: {
       method: labTestGenerateMethod.NORMAL,
+      valueType: 'number',
       mean: () => 29,
       sd: () => 9.69387755102041
     }
@@ -73,6 +76,7 @@ const hepatologyLabTests: labTestType[] = [
     },
     generate: {
       method: labTestGenerateMethod.NORMAL,
+      valueType: 'number',
       mean: () => 82,
       sd: () => 22.4489795918367
     }
@@ -99,6 +103,7 @@ const hepatologyLabTests: labTestType[] = [
     },
     generate: {
       method: labTestGenerateMethod.NORMAL,
+      valueType: 'number',
       mean: () => 2,
       sd: () => 1.02040816326531
     }
@@ -125,6 +130,7 @@ const hepatologyLabTests: labTestType[] = [
     },
     generate: {
       method: labTestGenerateMethod.NORMAL,
+      valueType: 'number',
       mean: () => 9.5,
       sd: () => 4.8469387755102
     }
@@ -151,6 +157,7 @@ const hepatologyLabTests: labTestType[] = [
     },
     generate: {
       method: labTestGenerateMethod.DERIVED,
+      valueType: 'number',
       requires: ['dbili', 'ibili'],
       calculate: (testResults) => asNumber(testResults['dbili']) + asNumber(testResults['ibili'])
     }
@@ -170,6 +177,7 @@ const hepatologyLabTests: labTestType[] = [
     },
     generate: {
       method: labTestGenerateMethod.NORMAL,
+      valueType: 'number',
       mean: () => 80,
       sd: () => 40.8163265306122
     }

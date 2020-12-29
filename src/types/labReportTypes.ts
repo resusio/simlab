@@ -13,6 +13,7 @@ export enum testResultFlag {
 
 export interface testResultWithMetadataType {
   value: testResultType;
+  valueType: 'number' | 'string';
   nomenclature: {
     short: string;
     long: string;

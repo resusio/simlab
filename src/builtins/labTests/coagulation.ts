@@ -16,6 +16,7 @@ const coagulationLabTests: labTestType[] = [
     },
     generate: {
       method: labTestGenerateMethod.NORMAL, // TODO: Should be caculated from PTT
+      valueType: 'number',
       mean: () => 1.05,
       sd: () => 0.0765306122448979
     }
@@ -35,6 +36,7 @@ const coagulationLabTests: labTestType[] = [
     },
     generate: {
       method: labTestGenerateMethod.NORMAL,
+      valueType: 'number',
       mean: () => 11.5,
       sd: () => 0.76530612244898
     }
@@ -54,6 +56,7 @@ const coagulationLabTests: labTestType[] = [
     },
     generate: {
       method: labTestGenerateMethod.NORMAL,
+      valueType: 'number',
       mean: () => 33,
       sd: () => 2.55102040816327
     }
@@ -73,6 +76,7 @@ const coagulationLabTests: labTestType[] = [
     },
     generate: {
       method: labTestGenerateMethod.NORMAL,
+      valueType: 'number',
       mean: () => 0.2,
       sd: () => 0.2
     }

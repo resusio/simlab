@@ -24,6 +24,7 @@ const renalLabTests: labTestType[] = [
     },
     generate: {
       method: labTestGenerateMethod.NORMAL,
+      valueType: 'number',
       mean: () => 5.25,
       sd: () => 1.4030612244898
     }
@@ -50,6 +51,7 @@ const renalLabTests: labTestType[] = [
     },
     generate: {
       method: labTestGenerateMethod.NORMAL,
+      valueType: 'number',
       mean: () => 95,
       sd: () => 12.7551020408163
     }
@@ -76,6 +78,7 @@ const renalLabTests: labTestType[] = [
     },
     generate: {
       method: labTestGenerateMethod.DERIVED,
+      valueType: 'number',
       requires: ['cr'],
       calculate: (testResults, patient) => {
         if (!patient) return Number.NaN;
@@ -101,6 +104,7 @@ const renalLabTests: labTestType[] = [
     },
     generate: {
       method: labTestGenerateMethod.NORMAL,
+      valueType: 'number',
       mean: () => 117.5,
       sd: () => 49.7448979591837
     }

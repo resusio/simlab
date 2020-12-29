@@ -46,20 +46,23 @@ export const enum labTestGenerateMethod {
   DERIVED
 }
 
-export type labTestGenerateType =
+export type labTestGenerateType = (
   | {
       method: labTestGenerateMethod.NORMAL;
+      valueType: 'number';
       mean: (patient?: patientInfoType, testResults?: testResultListType) => number;
       sd: (patient?: patientInfoType, testResults?: testResultListType) => number;
       allowNegative?: boolean;
-      neededBy?: string[];
     }
   | {
       method: labTestGenerateMethod.DERIVED;
+      valueType: 'number' | 'string';
       requires?: string[];
-      neededBy?: string[];
       calculate: (testResults: testResultListType, patient?: patientInfoType) => testResultType;
-    };
+    }
+) & {
+  neededBy?: string[];
+};
 
 export interface labTestType {
   id: string;

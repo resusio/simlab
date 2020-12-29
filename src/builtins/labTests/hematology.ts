@@ -23,6 +23,7 @@ const hematologyLabTests: labTestType[] = [
     },
     generate: {
       method: labTestGenerateMethod.NORMAL,
+      valueType: 'number',
       mean: () => 5.05,
       sd: () => 0.331632653061224
     }
@@ -55,6 +56,7 @@ const hematologyLabTests: labTestType[] = [
     },
     generate: {
       method: labTestGenerateMethod.NORMAL,
+      valueType: 'number',
       mean: () => 150,
       sd: () => 10.2040816326531
     }
@@ -74,6 +76,7 @@ const hematologyLabTests: labTestType[] = [
     },
     generate: {
       method: labTestGenerateMethod.DERIVED,
+      valueType: 'number',
       requires: ['hgb'],
       calculate: (testResults) => 0.003 * (testResults['hgb'] as number)
     }
@@ -93,6 +96,7 @@ const hematologyLabTests: labTestType[] = [
     },
     generate: {
       method: labTestGenerateMethod.NORMAL,
+      valueType: 'number',
       mean: () => 90,
       sd: () => 5.10204081632653
     }
@@ -112,6 +116,7 @@ const hematologyLabTests: labTestType[] = [
     },
     generate: {
       method: labTestGenerateMethod.NORMAL,
+      valueType: 'number',
       mean: () => 25.5,
       sd: () => 4.33673469387755
     }
@@ -138,6 +143,7 @@ const hematologyLabTests: labTestType[] = [
     },
     generate: {
       method: labTestGenerateMethod.NORMAL,
+      valueType: 'number',
       mean: () => 265,
       sd: () => 68.8775510204082
     }
@@ -157,6 +163,7 @@ const hematologyLabTests: labTestType[] = [
     },
     generate: {
       method: labTestGenerateMethod.NORMAL,
+      valueType: 'number',
       mean: () => 13,
       sd: () => 0.76530612244898
     }
@@ -183,6 +190,7 @@ const hematologyLabTests: labTestType[] = [
     },
     generate: {
       method: labTestGenerateMethod.NORMAL,
+      valueType: 'number',
       mean: () => 52,
       sd: () => 16.3265306122449
     }
@@ -209,6 +217,7 @@ const hematologyLabTests: labTestType[] = [
     },
     generate: {
       method: labTestGenerateMethod.NORMAL,
+      valueType: 'number',
       mean: () => 3.5,
       sd: () => 1.27551020408163
     }
@@ -235,6 +244,7 @@ const hematologyLabTests: labTestType[] = [
     },
     generate: {
       method: labTestGenerateMethod.NORMAL,
+      valueType: 'number',
       mean: () => 4,
       sd: () => 2.04081632653061
     }
@@ -261,6 +271,7 @@ const hematologyLabTests: labTestType[] = [
     },
     generate: {
       method: labTestGenerateMethod.DERIVED,
+      valueType: 'number',
       requires: ['neut', 'lymph', 'band', 'baso', 'eosin', 'mono'],
       calculate: (testResults) =>
         (testResults['neut'] as number) +
@@ -293,6 +304,7 @@ const hematologyLabTests: labTestType[] = [
     },
     generate: {
       method: labTestGenerateMethod.NORMAL,
+      valueType: 'number',
       mean: () => 4.5,
       sd: () => 1.27551020408163
     }
@@ -319,6 +331,7 @@ const hematologyLabTests: labTestType[] = [
     },
     generate: {
       method: labTestGenerateMethod.NORMAL,
+      valueType: 'number',
       mean: () => 0.35,
       sd: () => 0.178571428571429
     }
@@ -345,6 +358,7 @@ const hematologyLabTests: labTestType[] = [
     },
     generate: {
       method: labTestGenerateMethod.NORMAL,
+      valueType: 'number',
       mean: () => 0.05,
       sd: () => 0.0255102040816327
     }
@@ -371,6 +385,7 @@ const hematologyLabTests: labTestType[] = [
     },
     generate: {
       method: labTestGenerateMethod.NORMAL,
+      valueType: 'number',
       mean: () => 0.225,
       sd: () => 0.114795918367347
     }
@@ -397,6 +412,7 @@ const hematologyLabTests: labTestType[] = [
     },
     generate: {
       method: labTestGenerateMethod.NORMAL,
+      valueType: 'number',
       mean: () => 2.5,
       sd: () => 0.76530612244898
     }
@@ -423,6 +439,7 @@ const hematologyLabTests: labTestType[] = [
     },
     generate: {
       method: labTestGenerateMethod.NORMAL,
+      valueType: 'number',
       mean: () => 0.55,
       sd: () => 0.229591836734694
     }
