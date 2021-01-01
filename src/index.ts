@@ -31,6 +31,14 @@ import {
   testResultFlag
 } from './types/labReportTypes';
 
+/** Export all of the types needed */
+export * from './types/categoryTypes';
+export * from './types/diseaseTypes';
+export * from './types/labReportTypes';
+export * from './types/labTestTypes';
+export * from './types/orderSetTypes';
+export * from './types/patientTypes';
+
 export interface labReportGeneratorConfigType {
   labTests?: labTestType[];
   orderSets?: orderSetType[];
@@ -279,6 +287,22 @@ export default class LabReportGenerator {
       labIds: updatedTests,
       units: units
     });
+  }
+
+  public getAllLabTests() {
+    return this.labTests;
+  }
+
+  public getAllOrderSets() {
+    return this.orderSets;
+  }
+
+  public getAllDiseases() {
+    return this.diseaseSet;
+  }
+
+  public getAllCategories() {
+    return this.categorySet;
   }
 
   public addDiseases(diseaseIds: string | string[]) {
