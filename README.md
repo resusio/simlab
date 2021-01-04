@@ -1,5 +1,5 @@
 # Welcome to @resusio/simlab 👋
-![Version](https://img.shields.io/badge/version-0.5.0-blue.svg?cacheSeconds=2592000)
+![Version](https://img.shields.io/npm/v/@resusio/simlab?style=flat-square)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Twitter: TDJonesEM](https://img.shields.io/twitter/follow/TDJonesEM.svg?style=social)](https://twitter.com/TDJonesEM)
 
