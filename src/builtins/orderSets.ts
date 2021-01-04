@@ -8,8 +8,10 @@ import { orderSetType } from '../types/orderSetTypes';
 const orderSets: orderSetType[] = [
   {
     id: 'cbc',
-    long: 'Complete Blood Count',
-    short: 'CBC',
+    nomenclature: {
+      long: 'Complete Blood Count',
+      short: 'CBC'
+    },
     components: [
       'wbc',
       'rbc',
@@ -27,38 +29,50 @@ const orderSets: orderSetType[] = [
   },
   {
     id: 'lytes',
-    long: 'Electrolytes',
-    short: 'Lytes',
+    nomenclature: {
+      long: 'Electrolytes',
+      short: 'Lytes'
+    },
     components: ['na', 'cl', 'k', 'hco3', 'ag', 'bun', 'cr', 'gfr', 'gluc']
   },
   {
     id: 'chem7',
-    long: 'Chemistry (7-test)',
-    short: 'CHEM-7',
+    nomenclature: {
+      long: 'Chemistry (7-test)',
+      short: 'CHEM-7'
+    },
     components: ['lytes']
   },
   {
     id: 'coags',
-    long: 'Coagulation profile',
-    short: 'Coags',
+    nomenclature: {
+      long: 'Coagulation profile',
+      short: 'Coags'
+    },
     components: ['inr', 'ptt']
   },
   {
     id: 'basic',
-    long: 'Basic Bloodwork',
-    short: 'Basic',
+    nomenclature: {
+      long: 'Basic Bloodwork',
+      short: 'Basic'
+    },
     components: ['cbc', 'lytes', 'coags', 'alt']
   },
   {
     id: 'cardiac',
-    long: 'Cardiac Bloodwork',
-    short: 'Cardiac',
+    nomenclature: {
+      long: 'Cardiac Bloodwork',
+      short: 'Cardiac'
+    },
     components: ['basic', 'hstnt']
   },
   {
     id: 'hepatic',
-    long: 'Hepatic Panel',
-    short: 'Hepatic',
+    nomenclature: {
+      long: 'Hepatic Panel',
+      short: 'Hepatic'
+    },
     components: ['alt', 'ast', 'alp', 'ggt', 'lip', 'tbili']
   }
 ];

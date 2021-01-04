@@ -1,6 +1,8 @@
 export interface orderSetType {
   id: string;
-  long: string;
-  short: string;
+  nomenclature: {
+    long: string;
+    short: string;
+  };
   components: string[];
 }
