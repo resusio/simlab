@@ -61,6 +61,8 @@ export default class LabReportGenerator {
   private fullLabReportResults: testResultListType;
   private requestedLabTestResultIds: string[]; // Stores the ids of the lab tests that were actually requested by the user.
 
+  private lockedResults: string[];
+
   // ==== Constructor =========================================================
   constructor(
     requestedTestIds: string[] = [],
@@ -88,6 +90,7 @@ export default class LabReportGenerator {
     // Initialize empty lab report
     this.fullLabReportResults = {};
     this.requestedLabTestResultIds = [];
+    this.lockedResults = [];
 
     // For the sake of efficiency, we need to generate inverse links for derived tests
     // e.g. any other test can be 'needed by' a derived test, and by adding a neededBy
@@ -218,6 +221,7 @@ export default class LabReportGenerator {
         // Create the new object, add it into the accumulator for the reduce function, and return the object for the next iteration.
         result[labId] = {
           value: selectedUnit.convert(filteredLabResults[labId]),
+          isLocked: this.lockedResults.includes(labId),
           valueType: labTestConfig.generate.valueType,
           nomenclature: {
             short: labTestConfig.nomenclature.short,
@@ -402,6 +406,21 @@ export default class LabReportGenerator {
     this.patient = patient;
   }
 
+  public lockResult(testId: string) {
+    if (!this.lockedResults.includes(testId.toLowerCase()))
+      this.lockedResults.push(testId.toLowerCase());
+  }
+
+  public unlockResult(testId: string) {
+    if (this.lockedResults.includes(testId.toLowerCase()))
+      this.lockedResults = this.lockedResults.filter((listedTestId) => listedTestId !== testId);
+  }
+
+  public setResultLockState(testId: string, isLocked: boolean) {
+    if (isLocked) this.lockResult(testId);
+    else this.unlockResult(testId);
+  }
+
   // ==== Private methods =====================================================
   /**
    * Computes the lab result flag (e.g. high, low, critically high, critically
@@ -436,6 +455,13 @@ export default class LabReportGenerator {
     overriddenTests: testOverrideListType,
     patient: patientInfoType
   ) {
+    // Check if locked AND exists in the result set first, and if so, return the existing result
+    if (
+      this.lockedResults.includes(labTest.id) &&
+      _.keys(this.fullLabReportResults).includes(labTest.id)
+    )
+      return this.fullLabReportResults[labTest.id]; //result is locked, return existing result
+
     if (isNormalGenerator(labTest)) {
       return generateNormalLabTest(labTest, labReport, overriddenTests, patient);
     } else if (isDerivedGenerator(labTest)) {

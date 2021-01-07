@@ -14,6 +14,7 @@ export enum testResultFlag {
 export interface testResultWithMetadataType {
   value: testResultType;
   valueType: 'number' | 'string';
+  isLocked: boolean;
   nomenclature: {
     short: string;
     long: string;
