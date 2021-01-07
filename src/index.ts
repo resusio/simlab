@@ -398,6 +398,10 @@ export default class LabReportGenerator {
     this.addRequestedOrderSets(orderSetIds);
   }
 
+  public setPatient(patient: patientInfoType) {
+    this.patient = patient;
+  }
+
   // ==== Private methods =====================================================
   /**
    * Computes the lab result flag (e.g. high, low, critically high, critically
