@@ -2,11 +2,6 @@ import _ from 'underscore';
 
 import * as util from 'util';
 
-import builtinDiseases from './builtins/diseases';
-import builtinLabTests from './builtins/labTests';
-import builtinOrderSets from './builtins/orderSets';
-import builtinCategories from './builtins/categories';
-
 import {
   isComputedFlag,
   isDerivedGenerator,
@@ -72,10 +67,10 @@ export default class LabReportGenerator {
     config?: labReportGeneratorConfigType
   ) {
     // Concatenate any additional lab tests, order sets, or diseases
-    this.labTests = [...builtinLabTests, ...(config?.labTests || [])];
-    this.orderSets = [...builtinOrderSets, ...(config?.orderSets || [])];
-    this.diseaseSet = [...builtinDiseases, ...(config?.diseases || [])];
-    this.categorySet = [...builtinCategories, ...(config?.categories || [])];
+    this.labTests = config?.labTests || [];
+    this.orderSets = config?.orderSets || [];
+    this.diseaseSet = config?.diseases || [];
+    this.categorySet = config?.categories || [];
 
     // Save the lab tests and order sets for this lab report
     this.setRequestedLabTests(requestedTestIds);
