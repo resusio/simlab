@@ -41,7 +41,7 @@ export interface labTestDisplayFlagParametersType {
 
 export type labTestDisplayType = labTestDisplayFlagComputedType | labTestDisplayFlagParametersType;
 
-export const enum labTestGenerateMethod {
+export enum labTestGenerateMethod {
   NORMAL,
   DERIVED
 }
