@@ -216,8 +216,9 @@ export default class LabReportGenerator {
         // Create the new object, add it into the accumulator for the reduce function, and return the object for the next iteration.
         result[labId] = {
           value: selectedUnit.convert(filteredLabResults[labId]),
-          isLocked: this.lockedResults.includes(labId),
           valueType: labTestConfig.generate.valueType,
+          isLocked: this.lockedResults.includes(labId),
+          generatedType: labTestConfig.generate.method,
           nomenclature: {
             short: labTestConfig.nomenclature.short,
             long: labTestConfig.nomenclature.long

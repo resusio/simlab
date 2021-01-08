@@ -1,6 +1,6 @@
 // TODO: lab report type with the useful info included (ranges, etc.)
 
-import { labTestNomenclatureType, testResultType } from './labTestTypes';
+import { labTestNomenclatureType, testResultType, labTestGenerateMethod } from './labTestTypes';
 
 export enum testResultFlag {
   LOW = 'L',
@@ -15,6 +15,7 @@ export interface testResultWithMetadataType {
   value: testResultType;
   valueType: 'number' | 'string';
   isLocked: boolean;
+  generatedType: labTestGenerateMethod;
   nomenclature: {
     short: string;
     long: string;
