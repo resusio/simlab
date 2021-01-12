@@ -10,7 +10,6 @@ import {
   labTestDisplayFlagParametersType,
   labTestType,
   testOverrideListType,
-  testResultListType,
   testResultType
 } from './types/labTestTypes';
 import { orderLabTestsByDependency } from './dependencyGraph';
@@ -23,7 +22,9 @@ import {
   categoryWithTests,
   fullTestResultType,
   labTestResultType,
-  testResultFlag
+  serializedReportType,
+  testResultFlag,
+  testResultListType
 } from './types/labReportTypes';
 
 /** Export all of the types needed */
@@ -305,6 +306,30 @@ export default class LabReportGenerator {
     return this.categorySet;
   }
 
+  public deserializeReport(savedReport: serializedReportType) {
+    this.patient = savedReport.patient;
+
+    this.setRequestedLabTests(savedReport.testIds);
+    this.setRequestedOrderSets(savedReport.orderSetIds);
+    this.setDiseases(savedReport.diseaseIds);
+
+    this.lockedResults = savedReport.lockedTestIds;
+
+    // Set the computed results directly
+    this.fullLabReportResults = savedReport.testResults;
+  }
+
+  public serializeReport(): serializedReportType {
+    return {
+      patient: this.patient,
+      testIds: this.requestedLabTests.map((labTest) => labTest.id),
+      orderSetIds: this.requestedOrderSets.map((orderSet) => orderSet.id),
+      diseaseIds: this.diseases.map((disease) => disease.id),
+      lockedTestIds: this.lockedResults,
+      testResults: this.fullLabReportResults
+    };
+  }
+
   public addDiseases(diseaseIds: string | string[]) {
     if (!Array.isArray(diseaseIds)) diseaseIds = [diseaseIds];
 
@@ -415,6 +440,10 @@ export default class LabReportGenerator {
   public setResultLockState(testId: string, isLocked: boolean) {
     if (isLocked) this.lockResult(testId);
     else this.unlockResult(testId);
+  }
+
+  public getLockedList() {
+    return this.lockedResults;
   }
 
   // ==== Private methods =====================================================

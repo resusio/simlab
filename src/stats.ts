@@ -5,9 +5,9 @@ import {
   labTestGenerateType,
   labTestType,
   testOverrideListType,
-  testResultListType,
   testResultType
 } from './types/labTestTypes';
+import { testResultListType } from './types/labReportTypes';
 import { patientInfoType } from './types/patientTypes';
 
 /**

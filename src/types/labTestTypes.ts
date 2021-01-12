@@ -1,12 +1,9 @@
 import { diseaseTestOverrideType } from './diseaseTypes';
 import { testResultFlag } from './labReportTypes';
 import { patientInfoType } from './patientTypes';
+import { testResultListType } from './labReportTypes';
 
 export type testResultType = number | string;
-
-export interface testResultListType {
-  [testId: string]: testResultType;
-}
 
 export interface testOverrideListType {
   [testId: string]: diseaseTestOverrideType[];

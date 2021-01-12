@@ -1,4 +1,5 @@
-import { labTestGenerateMethod, testResultListType, testResultType } from './labTestTypes';
+import { labTestGenerateMethod, testResultType } from './labTestTypes';
+import { testResultListType } from './labReportTypes';
 import { patientInfoType } from './patientTypes';
 
 export type diseaseTestOverrideType =
