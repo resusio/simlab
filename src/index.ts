@@ -55,7 +55,6 @@ export default class LabReportGenerator {
   private patient: patientInfoType;
 
   private fullLabReportResults: testResultListType;
-  private requestedLabTestResultIds: string[]; // Stores the ids of the lab tests that were actually requested by the user.
 
   private lockedResults: string[];
 
@@ -85,7 +84,6 @@ export default class LabReportGenerator {
 
     // Initialize empty lab report
     this.fullLabReportResults = {};
-    this.requestedLabTestResultIds = [];
     this.lockedResults = [];
 
     // For the sake of efficiency, we need to generate inverse links for derived tests
@@ -119,7 +117,6 @@ export default class LabReportGenerator {
     // Expand the list of requested lab tests and order sets to just lab tests
     // This is the list of lab tests actually provided to the user.
     const fullTestList = this.expandOrderSets(this.requestedOrderSets, this.requestedLabTests);
-    this.requestedLabTestResultIds = fullTestList.map((test) => test.id);
 
     // Create an ordered list of labs such that derived labs will be computed after the labs that
     // their values depend on (create and solve a dependency graph).
@@ -146,11 +143,17 @@ export default class LabReportGenerator {
   }
 
   public fetchLabReport({ labIds, units = 'metric' }: { labIds?: string[]; units?: string } = {}) {
+    // Recalculate a list of requested lab test Ids
+    const listRequestedTestIds = this.expandOrderSets(
+      this.requestedOrderSets,
+      this.requestedLabTests
+    ).map((test) => test.id);
+
     // If some labIds are provided, select only those that appear both in the provided labIds array,
     // and the requestedLabTestResultIds array
     const labTestIdsComputed = labIds
-      ? _.intersection(labIds, this.requestedLabTestResultIds)
-      : this.requestedLabTestResultIds;
+      ? _.intersection(labIds, listRequestedTestIds)
+      : listRequestedTestIds;
 
     // Select only the desired lab results
     const filteredLabResults = _.pick(this.fullLabReportResults, labTestIdsComputed);
