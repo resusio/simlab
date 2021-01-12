@@ -114,6 +114,7 @@ export default class LabReportGenerator {
   }
 
   // ==== Public methods ======================================================
+  // TODO: Generate a result for every available lab test to facilitate overriding of generators (eg. override a normal dist. lab generator with a derived one for ABGs)
   public generateLabReport() {
     // Expand the list of requested lab tests and order sets to just lab tests
     // This is the list of lab tests actually provided to the user.
@@ -195,7 +196,7 @@ export default class LabReportGenerator {
 
         // 2. See if there is already an entry for this category in the local category sort-and-testId list
         let categoryEntry = categories.find(
-          (categoryToTest) => categoryToTest.name === labTestConfig.nomenclature.category
+          (categoryToTest) => categoryToTest.name === categoryInfo.categoryName
         );
 
         // 3. Category entry not found, add a new blank one.
